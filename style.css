@@ -82,6 +82,47 @@ header {
     gap: 15px;
 }
 
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+header.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+header.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+header.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+body.nav-lock {
+    overflow: hidden;
+}
+
 .logo {
     font-size: 42px;
     font-weight: 700;
@@ -1309,6 +1350,56 @@ footer.site-footer,
     }
 }
 
+@media (max-width: 860px) {
+    header {
+        padding: 14px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    nav.site-nav,
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 8px 0 4px;
+    }
+
+    header.nav-open nav.site-nav,
+    header.nav-open nav {
+        display: flex;
+    }
+
+    header nav a {
+        padding: 12px 10px;
+        border-radius: 10px;
+        border-bottom: none;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+        background: rgba(var(--accent-rgb), 0.08);
+        border-bottom-color: transparent;
+    }
+
+    .profile-icon {
+        width: 42px;
+        height: 42px;
+        margin: 6px 10px 4px;
+        align-self: flex-start;
+    }
+}
+
 @media (max-width: 768px) {
     /* Шапка */
     header {
@@ -1316,10 +1407,6 @@ footer.site-footer,
     }
     .logo {
         font-size: 28px;
-    }
-    nav {
-        gap: 15px;
-        font-size: 14px;
     }
     .profile-icon {
         width: 38px;
@@ -3847,6 +3934,24 @@ a.profile-icon {
 
 .footer-legal:hover {
     text-decoration: underline;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+    margin-top: 4px;
+}
+
+.footer-contacts a {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.footer-contacts a:hover {
+    color: var(--accent);
 }
 
 .page-privacy {

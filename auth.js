@@ -496,10 +496,71 @@ function initPwa() {
     });
 }
 
+function initMobileNav() {
+    const header = document.querySelector('body > header, header');
+    if (!header) return;
+    const nav = header.querySelector('nav');
+    if (!nav || header.querySelector('.nav-toggle')) return;
+
+    nav.classList.add('site-nav');
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-toggle';
+    btn.setAttribute('aria-label', 'Открыть меню');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+
+    const logo = header.querySelector('.logo');
+    if (logo && logo.nextSibling) header.insertBefore(btn, logo.nextSibling);
+    else header.appendChild(btn);
+
+    const setOpen = (open) => {
+        header.classList.toggle('nav-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        document.body.classList.toggle('nav-lock', open);
+    };
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setOpen(!header.classList.contains('nav-open'));
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) setOpen(false);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 860) setOpen(false);
+    });
+}
+
+function enhanceFooterContacts() {
+    document.querySelectorAll('footer.site-footer').forEach(footer => {
+        if (footer.querySelector('.footer-contacts')) return;
+
+        const row = document.createElement('div');
+        row.className = 'footer-contacts';
+        row.innerHTML = `
+            <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+            <a href="${CONTACT_TG_CHANNEL}" target="_blank" rel="noopener noreferrer">${CONTACT_TG_CHANNEL_HANDLE}</a>
+            <a href="${CONTACT_TG_CHAT}" target="_blank" rel="noopener noreferrer">${CONTACT_TG_CHAT_HANDLE}</a>
+        `;
+        footer.appendChild(row);
+    });
+}
+
 function initSiteChrome() {
+    initMobileNav();
     initBackToTop();
     initRevealAnimations();
     initPwa();
+    enhanceFooterContacts();
 }
 
 /* ---------- Шапка: кабинет / войти ---------- */
