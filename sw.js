@@ -1,5 +1,5 @@
 /* LEARN PWA service worker */
-const CACHE_NAME = 'learn-pwa-v2';
+const CACHE_NAME = 'learn-pwa-v3';
 const OFFLINE_URL = 'offline.html';
 
 const PRECACHE = [
@@ -17,6 +17,7 @@ const PRECACHE = [
   './schedule.html',
   './privacy.html',
   './offline.html',
+  './404.html',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',

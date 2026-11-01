@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN — страница не найдена</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="page-offline">
+    <main class="offline-main">
+        <p class="brand-mark">LEARN</p>
+        <h1>Страница не найдена</h1>
+        <p>Такой адрес не существует или ссылка устарела. Вернитесь на главную и продолжите с каталога предметов.</p>
+        <div class="hero-cta" style="justify-content:center;">
+            <a class="btn-primary" href="index.html">На главную</a>
+            <a class="btn-ghost" href="subjects.html">К предметам</a>
+        </div>
+    </main>
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initAuthNav);
+    </script>
+</body>
+</html>

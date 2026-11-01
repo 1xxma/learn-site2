@@ -118,28 +118,48 @@ function logout() {
 
 function setSession(emailKey) {
     localStorage.setItem(SESSION_KEY, JSON.stringify({
-        email: emailKey,
+        email: String(emailKey || '').trim().toLowerCase(),
         loginAt: Date.now()
     }));
 }
 
+function clearBrokenSession() {
+    try { localStorage.removeItem(SESSION_KEY); } catch (_) {}
+}
+
 function getCurrentUser() {
     try {
-        const session = JSON.parse(localStorage.getItem(SESSION_KEY));
-        if (!session || !session.email) return null;
+        const raw = localStorage.getItem(SESSION_KEY);
+        if (!raw) return null;
+
+        const session = JSON.parse(raw);
+        if (!session || !session.email) {
+            clearBrokenSession();
+            return null;
+        }
 
         const users = getUsers();
-        const user = users[session.email];
-        if (!user) return null;
+        const user = users[String(session.email).toLowerCase()];
+        if (!user) {
+            // Аккаунт удалили из хранилища — сбрасываем «залипшую» сессию
+            clearBrokenSession();
+            return null;
+        }
 
         return {
             name: user.name,
             email: user.email,
-            createdAt: user.createdAt || null
+            createdAt: user.createdAt || null,
+            loginAt: session.loginAt || null
         };
     } catch {
+        clearBrokenSession();
         return null;
     }
+}
+
+function isLoggedIn() {
+    return !!getCurrentUser();
 }
 
 /* ---------- Записи на уроки ---------- */
