@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN — Медведев Артём Сергеевич</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LEARN">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="page-tutor">
+
+    <header>
+        <a href="index.html" class="logo">LEARN</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="subjects.html">Предметы</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="login.html">Войти</a>
+            <a href="login.html" class="profile-icon" aria-label="Личный кабинет">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <section class="tutor-top reveal is-visible">
+        <div class="tutor-top-inner">
+            <a class="tutor-back" href="subjects.html">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                К предметам
+            </a>
+            <p class="tutor-subject-chip">История, 10-11 классы</p>
+        </div>
+    </section>
+
+    <main class="tutor-layout reveal">
+        <aside class="tutor-side">
+            <div class="tutor-photo-wrap">
+                <img src="https://avatars.mds.yandex.net/i?id=39955ebe4929b74eca03deabff8c1e3c_l-4944748-images-thumbs&n=33&w=828&h=828" alt="Медведев Артём Сергеевич" class="tutor-photo">
+            </div>
+            <p class="tutor-price-badge">от 750 ₽ <span>/ час</span></p>
+            <button type="button" class="schedule-btn" onclick="openScheduleFromTutorPage()">Записаться на урок</button>
+            <button type="button" class="tutor-fav-btn" id="tutorFavBtn" aria-pressed="false"><span aria-hidden="true">♡</span> В избранное</button>
+            <a class="tutor-secondary-link" href="reviews.html">Смотреть отзывы</a>
+        </aside>
+
+        <section class="tutor-main">
+            <p class="tutor-kicker">Репетитор LEARN</p>
+            <h1>Медведев Артём Сергеевич</h1>
+            <div class="tutor-facts">
+                    <div class="tutor-fact"><span class="tutor-fact-label">Цена:</span><span class="tutor-fact-value tutor-price-value">от 750 ₽/час</span></div>
+                    <div class="tutor-fact"><span class="tutor-fact-label">Опыт работы:</span><span class="tutor-fact-value">9 лет</span></div>
+                    <div class="tutor-fact"><span class="tutor-fact-label">Занятия:</span><span class="tutor-fact-value">Индивидуально</span></div>
+                    <div class="tutor-fact"><span class="tutor-fact-label">Время работы:</span><span class="tutor-fact-value">с 10:00 до 20:00</span></div>
+                    <div class="tutor-fact tutor-fact-wide"><span class="tutor-fact-value">Длительность занятия: 45 минут (1 акк/ч)</span></div>
+                    <div class="tutor-fact"><span class="tutor-fact-label">Образование:</span><span class="tutor-fact-value">Уральский федеральный университет имени Б.Н. Ельцина.<br>Исторический факультет, специальность «История»</span></div>
+                    <div class="tutor-fact"><span class="tutor-fact-label">Подход:</span><span class="tutor-fact-value">Изучение причин событий и их хронология. Разбор карт и терминов. Практика с заданиями ЕГЭ.</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>С любовью, проект ВВФ МТУСИ</p>
+        <a class="footer-legal" href="privacy.html">Политика и согласие</a>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthNav();
+            initFavoriteButton(document.getElementById('tutorFavBtn'));
+        });
+    </script>
+
+</body>
+</html>

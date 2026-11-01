@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN — онлайн-репетиторы</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LEARN">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="page-home">
+
+    <header>
+        <a href="index.html" class="logo">LEARN</a>
+        <nav>
+            <a href="subjects.html">Предметы</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="login.html">Войти</a>
+            <a href="login.html" class="profile-icon" aria-label="Личный кабинет">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <main class="hero-landing hero-landing-plain">
+        <div class="hero-copy">
+            <p class="brand-mark">LEARN</p>
+            <h1>Учёба без стресса — с репетитором, которому доверяют</h1>
+            <p class="hero-lead">Школьные предметы онлайн: спокойные уроки, понятные объяснения и заметный прогресс.</p>
+            <div class="hero-cta">
+                <a class="btn-primary" href="subjects.html">Выбрать предмет</a>
+                <a class="btn-ghost" href="#how">Как это работает</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="home-section home-subjects reveal" id="subjects-preview">
+        <div class="home-section-inner">
+            <div class="section-heading">
+                <h2>Популярные предметы</h2>
+                <p>Выберите направление — и мы подберём репетитора под класс и цель.</p>
+            </div>
+            <form class="site-search site-search-home" action="subjects.html" method="get" role="search">
+                <label class="visually-hidden" for="homeSearchInput">Поиск репетитора</label>
+                <input id="homeSearchInput" type="search" name="q" placeholder="Найти: предмет, класс или имя репетитора" autocomplete="off">
+                <button type="submit" class="btn-primary">Найти</button>
+            </form>
+            <div class="subject-chips">
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">Математика</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor.html" role="menuitem">1–4 классы</a>
+                        <a href="tutor2.html" role="menuitem">5–9 классы</a>
+                        <a href="tutor3.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">Русский язык</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor7.html" role="menuitem">1–4 классы</a>
+                        <a href="tutor8.html" role="menuitem">5–9 классы</a>
+                        <a href="tutor9.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">Английский</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor10.html" role="menuitem">1–4 классы</a>
+                        <a href="tutor10.html" role="menuitem">5–9 классы</a>
+                        <a href="tutor10.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">Обществознание</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor5.html" role="menuitem">6–9 классы</a>
+                        <a href="tutor6.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">История</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor14.html" role="menuitem">5–9 классы</a>
+                        <a href="tutor15.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <div class="subject-chip-wrap">
+                    <button type="button" class="subject-chip" aria-expanded="false" aria-haspopup="true">Биология</button>
+                    <div class="subject-chip-menu" role="menu">
+                        <a href="tutor11.html" role="menuitem">5–9 классы</a>
+                        <a href="tutor12.html" role="menuitem">10–11 классы</a>
+                    </div>
+                </div>
+                <a class="subject-chip subject-chip-more" href="subjects.html">Все предметы →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-how reveal" id="how">
+        <div class="home-section-inner">
+            <div class="section-heading">
+                <h2>Как это работает</h2>
+                <p>Три простых шага до первого урока.</p>
+            </div>
+            <ol class="how-steps">
+                <li class="how-step">
+                    <span class="how-num">1</span>
+                    <h3>Выберите предмет</h3>
+                    <p>Математика, русский, английский и другие школьные курсы.</p>
+                </li>
+                <li class="how-step">
+                    <span class="how-num">2</span>
+                    <h3>Запишитесь на время</h3>
+                    <p>Откройте расписание репетитора и займите удобный слот.</p>
+                </li>
+                <li class="how-step">
+                    <span class="how-num">3</span>
+                    <h3>Занимайтесь онлайн</h3>
+                    <p>Урок 45 или 60 минут — в спокойном темпе и с обратной связью.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="home-trust reveal">
+        <h2>Почему родители выбирают нас</h2>
+        <div class="hero-features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                </div>
+                <div class="feature-text">Индивидуальный подход под темп ученика</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <div class="feature-text">Реальный прогресс, который видно в оценках</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="feature-text">Проверенные репетиторы с опытом</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-tutors reveal" id="tutors">
+        <div class="home-section-inner">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <h2>Репетиторы, с которых начинают</h2>
+                    <p>Знакомые лица, понятные цены и опыт работы со школьниками.</p>
+                </div>
+                <a class="text-link" href="subjects.html">Смотреть всех</a>
+            </div>
+            <div class="home-tutor-grid">
+                <article class="home-tutor-card">
+                    <img src="https://ecvdo.ru/assets/images/08.09/states/smiling-showing-thumbs-down-young-female-teacher-wearing-glasses-holding-paper-sitting-desk-with-school-tools-classroom.jpg" alt="Смирнова Анна Сергеевна">
+                    <div class="home-tutor-body">
+                        <h3>Смирнова Анна Сергеевна</h3>
+                        <p class="home-tutor-meta">Математика · 1–4 классы</p>
+                        <p class="home-tutor-price">от 600 ₽ · 7 лет опыта</p>
+                        <a class="btn-primary btn-sm" href="tutor.html">Записаться</a>
+                    </div>
+                </article>
+                <article class="home-tutor-card">
+                    <img src="https://avatars.mds.yandex.net/i?id=68e2963a1cc2439b83c4e6f81f484fe1_l-12421615-images-thumbs&n=33&w=785&h=828" alt="Козлов Дмитрий Иванович">
+                    <div class="home-tutor-body">
+                        <h3>Козлов Дмитрий Иванович</h3>
+                        <p class="home-tutor-meta">Математика · 5–9 классы</p>
+                        <p class="home-tutor-price">от 800 ₽ · 8 лет опыта</p>
+                        <a class="btn-primary btn-sm" href="tutor2.html">Записаться</a>
+                    </div>
+                </article>
+                <article class="home-tutor-card">
+                    <img src="https://avatars.mds.yandex.net/get-shedevrum/14791598/img_63ab2dbcab9611ef8300a2566b9d985b/orig" alt="Фролова Анна Дмитриевна">
+                    <div class="home-tutor-body">
+                        <h3>Фролова Анна Дмитриевна</h3>
+                        <p class="home-tutor-meta">Английский · 1–11 классы</p>
+                        <p class="home-tutor-price">от 700 ₽ · разговорная практика</p>
+                        <a class="btn-primary btn-sm" href="tutor10.html">Записаться</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-reviews reveal" id="home-reviews">
+        <div class="home-section-inner">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <h2>Что говорят родители и ученики</h2>
+                    <p>Короткие истории прогресса — без лишнего шума.</p>
+                </div>
+                <a class="text-link" href="reviews.html">Все отзывы</a>
+            </div>
+            <div class="home-reviews-grid">
+                <blockquote class="home-quote">
+                    <p>«Сын стал увереннее в школе, оценки выросли с „3“ до „4“ и „5“. Объясняет спокойно, без давления.»</p>
+                    <footer>Елена Морозова · мама, 4 класс · Математика</footer>
+                </blockquote>
+                <blockquote class="home-quote">
+                    <p>«Готовился к ОГЭ по русскому 3 месяца — сдал на „4“. Разбираем ошибки и дают доп. материалы.»</p>
+                    <footer>Игорь Соколов · ученик 9 класса</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-results reveal" id="results">
+        <div class="home-section-inner">
+            <div class="section-heading">
+                <h2>Результаты учеников</h2>
+                <p>Демо-цифры по итогам занятий за последний учебный сезон.</p>
+            </div>
+            <div class="results-grid">
+                <article class="result-card">
+                    <strong>4.6</strong>
+                    <span>средний балл после 3 месяцев занятий</span>
+                </article>
+                <article class="result-card">
+                    <strong>87%</strong>
+                    <span>сдали ОГЭ на «4» и «5»</span>
+                </article>
+                <article class="result-card">
+                    <strong>92%</strong>
+                    <span>родителей рекомендуют LEARN</span>
+                </article>
+                <article class="result-card">
+                    <strong>+1.4</strong>
+                    <span>рост оценки по предмету за четверть</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-guarantees reveal" id="guarantees">
+        <div class="home-section-inner">
+            <div class="section-heading">
+                <h2>Наши гарантии</h2>
+                <p>Понятные правила — чтобы заниматься было спокойно.</p>
+            </div>
+            <div class="guarantees-grid">
+                <article class="guarantee-card">
+                    <h3>Отмена записи</h3>
+                    <p>Предстоящий урок можно отменить в личном кабинете в разделе «Мои записи».</p>
+                </article>
+                <article class="guarantee-card">
+                    <h3>Перенос занятия</h3>
+                    <p>Отмените текущую запись и выберите новое время у того же репетитора за пару минут.</p>
+                </article>
+                <article class="guarantee-card">
+                    <h3>Что нужно для урока</h3>
+                    <p>Компьютер или планшет, стабильный интернет и тетрадь. Репетитор подскажет материалы на первом занятии.</p>
+                </article>
+                <article class="guarantee-card">
+                    <h3>Прозрачная оплата</h3>
+                    <p>Цена указана на странице репетитора. Без скрытых подписок и обязательных пакетов.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-faq reveal" id="faq">
+        <div class="home-section-inner">
+            <div class="section-heading">
+                <h2>Частые вопросы</h2>
+                <p>Коротко о том, что обычно спрашивают перед первым уроком.</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>Занятия только онлайн?</summary>
+                    <p>Да, все уроки проходят онлайн. Достаточно компьютера или планшета, стабильного интернета и спокойного места, где удобно заниматься. Репетитор подскажет, какие материалы понадобятся на первом занятии.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как записаться на урок?</summary>
+                    <p>Выберите предмет и класс, откройте страницу репетитора и нажмите «Записаться на урок». В расписании можно выбрать удобный день и время. После записи урок появится в личном кабинете в разделе «Мои записи».</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Можно ли отменить или перенести запись?</summary>
+                    <p>Да. Открытые предстоящие уроки можно отменить в личном кабинете. Если нужно перенести занятие, отмените текущую запись и выберите новое время у того же репетитора — так удобнее и быстрее.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>С какого класса можно заниматься?</summary>
+                    <p>У нас есть репетиторы для младшей школы, средней и старшей: обычно это форматы 1–4, 5–9 и 10–11 классов. Набор зависит от предмета — например, математика и русский есть для всех уровней, а часть предметов начинается со средней школы.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Сколько длится урок и сколько он стоит?</summary>
+                    <p>Стандартная длительность — 45 или 60 минут, в зависимости от формата и возраста ученика. Стоимость начинается от 500 ₽ за час. Точные условия лучше уточнить у выбранного репетитора перед первой записью.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Есть ли пробный урок?</summary>
+                    <p>Можно спокойно записаться на первый урок и оценить, как проходит занятие: темп, объяснения и контакт с репетитором. Если формат подходит — продолжайте в удобном ритме. Если нет, можно выбрать другого преподавателя по тому же предмету.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Нужно ли регистрироваться заранее?</summary>
+                    <p>Да, чтобы записаться на урок и видеть свои занятия, нужен аккаунт. Регистрация занимает пару минут: укажите имя, почту и пароль. После входа можно сразу выбрать предмет и оформить запись.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Помогаете ли с ОГЭ и ЕГЭ?</summary>
+                    <p>Да. Для 9–11 классов есть репетиторы, которые готовят к ОГЭ и ЕГЭ: разбирают структуру заданий, типичные ошибки и тренируют решение под таймер. Можно выбрать предмет и класс 10–11 — или уточнить цель на первом уроке.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как выбрать подходящего репетитора?</summary>
+                    <p>Начните с предмета и класса — так вы сразу попадёте к преподавателю нужного уровня. Посмотрите описание, подход и отзывы. Если сомневаетесь, запишитесь на первый урок: по нему обычно понятно, подходит ли темп и стиль объяснения.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Что делать, если пропустили занятие?</summary>
+                    <p>Если урок уже прошёл, он останется в истории записей. Чтобы продолжить, просто выберите новое время у репетитора. Если заранее поняли, что не сможете прийти, лучше отменить запись заранее — так расписание останется актуальным.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section home-final-cta reveal">
+        <div class="home-section-inner final-cta-panel">
+            <h2>Готовы начать без стресса?</h2>
+            <p>Выберите предмет и запишитесь к репетитору за пару минут.</p>
+            <div class="hero-cta">
+                <a class="btn-primary" href="subjects.html">Найти репетитора</a>
+                <a class="btn-ghost" href="register.html">Создать аккаунт</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>С любовью, проект ВВФ МТУСИ</p>
+        <a class="footer-legal" href="privacy.html">Политика и согласие</a>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthNav();
+
+            const chipWraps = document.querySelectorAll('.subject-chip-wrap');
+            chipWraps.forEach(wrap => {
+                const btn = wrap.querySelector('.subject-chip');
+                if (!btn) return;
+
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const willOpen = !wrap.classList.contains('is-open');
+                    chipWraps.forEach(other => {
+                        other.classList.remove('is-open');
+                        const otherBtn = other.querySelector('.subject-chip');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    });
+                    wrap.classList.toggle('is-open', willOpen);
+                    btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                });
+            });
+
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.subject-chip-wrap')) return;
+                chipWraps.forEach(wrap => {
+                    wrap.classList.remove('is-open');
+                    const btn = wrap.querySelector('.subject-chip');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            const items = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            items.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

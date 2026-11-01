@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN — Отзывы</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LEARN">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="page-reviews">
+
+    <header>
+        <a href="index.html" class="logo">LEARN</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="subjects.html">Предметы</a>
+            <a href="reviews.html" class="active">Отзывы</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="login.html">Войти</a>
+            <a href="login.html" class="profile-icon" aria-label="Личный кабинет">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <section class="reviews-hero reveal is-visible">
+        <div class="reviews-hero-inner">
+            <p class="reviews-kicker">Отзывы LEARN</p>
+            <h1>Истории прогресса без лишнего шума</h1>
+            <p class="reviews-lead">
+                Родители и ученики делятся тем, как занятия помогли подтянуть оценки,
+                сдать экзамены и спокойнее относиться к учёбе.
+            </p>
+        </div>
+    </section>
+
+    <section class="home-section reviews-main reveal">
+        <div class="home-section-inner">
+            <div class="reviews-toolbar">
+                <div class="section-heading">
+                    <h2>Что говорят о нас</h2>
+                    <p id="reviewsSubtitle">Сейчас показаны все отзывы · 24</p>
+                </div>
+                <div class="reviews-filters" role="group" aria-label="Фильтр по предмету">
+                    <button type="button" class="reviews-filter is-active" data-filter="all">Все</button>
+                    <button type="button" class="reviews-filter" data-filter="math">Математика</button>
+                    <button type="button" class="reviews-filter" data-filter="russian">Русский</button>
+                    <button type="button" class="reviews-filter" data-filter="english">Английский</button>
+                    <button type="button" class="reviews-filter" data-filter="history">История</button>
+                    <button type="button" class="reviews-filter" data-filter="biology">Биология</button>
+                    <button type="button" class="reviews-filter" data-filter="social">Обществознание</button>
+                    <button type="button" class="reviews-filter" data-filter="geography">География</button>
+                    <button type="button" class="reviews-filter" data-filter="literature">Литература</button>
+                </div>
+            </div>
+
+            <div class="reviews-grid-new" id="reviewsGrid">
+
+                <!-- Математика -->
+                <article class="review-card-new" data-subject="math">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Е</div>
+                        <div>
+                            <h3>Елена Морозова</h3>
+                            <p>Мама ученика 4 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">За полгода математика перестала быть стрессом. Сын сам тянет руку на уроках, оценки с «3» ушли к «4» и «5».</p>
+                    <div class="review-tag">Математика · 1–4 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="math">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">К</div>
+                        <div>
+                            <h3>Кирилл Орлов</h3>
+                            <p>Ученик 8 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Алгебру объясняют так, что наконец понял дроби и уравнения. Домашку теперь делаю быстрее и без паники.</p>
+                    <div class="review-tag">Математика · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="math">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Н</div>
+                        <div>
+                            <h3>Наталья Белова</h3>
+                            <p>Мама ученицы 10 класса</p>
+                        </div>
+                        <div class="review-stars-new review-stars-4" aria-label="4 из 5">★★★★☆</div>
+                    </div>
+                    <p class="review-quote">К профилю готовимся увереннее. Иногда слоты заканчиваются быстро, но качество занятий высокое — оставляю 4 из-за расписания.</p>
+                    <div class="review-tag">Математика · 10–11 классы</div>
+                </article>
+
+                <!-- Русский -->
+                <article class="review-card-new" data-subject="russian">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">И</div>
+                        <div>
+                            <h3>Игорь Соколов</h3>
+                            <p>Ученик 9 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">К ОГЭ готовились три месяца. Разобрали типовые ошибки — сдал на «4», хотя начинал с слабой «3».</p>
+                    <div class="review-tag">Русский язык · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="russian">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">В</div>
+                        <div>
+                            <h3>Вера Кузьмина</h3>
+                            <p>Мама ученика 3 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">С диктантами была беда. Сейчас пишет аккуратнее, меньше путает правила. Ребёнку нравится формат урока.</p>
+                    <div class="review-tag">Русский язык · 1–4 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="russian">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Д</div>
+                        <div>
+                            <h3>Дарья Лебедева</h3>
+                            <p>Ученица 11 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Сочинения перестали быть кошмаром. Дают чёткий план и тренируют аргументы — уже ближе к целевым баллам ЕГЭ.</p>
+                    <div class="review-tag">Русский язык · 10–11 классы</div>
+                </article>
+
+                <!-- Английский -->
+                <article class="review-card-new" data-subject="english">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">О</div>
+                        <div>
+                            <h3>Ольга Петрова</h3>
+                            <p>Мама ученицы 7 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Дочка боялась говорить. После разговорных уроков начала отвечать на английском сама — оценка выросла до «4».</p>
+                    <div class="review-tag">Английский · 1–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="english">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">Т</div>
+                        <div>
+                            <h3>Тимофей Жуков</h3>
+                            <p>Ученик 6 класса</p>
+                        </div>
+                        <div class="review-stars-new review-stars-4" aria-label="4 из 5">★★★★☆</div>
+                    </div>
+                    <p class="review-quote">Грамматику объясняют понятно, но хотелось бы чуть больше игр. В целом прогресс есть, слова запоминаются лучше.</p>
+                    <div class="review-tag">Английский · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="english">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">А</div>
+                        <div>
+                            <h3>Алина Чернова</h3>
+                            <p>Ученица 10 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Готовлюсь к устной части. Много практики listening и speaking — уже не теряюсь, когда нужно ответить целиком.</p>
+                    <div class="review-tag">Английский · 10–11 классы</div>
+                </article>
+
+                <!-- История -->
+                <article class="review-card-new" data-subject="history">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">П</div>
+                        <div>
+                            <h3>Павел Никитин</h3>
+                            <p>Ученик 8 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Раньше путал даты и эпохи. Теперь есть схемы и короткие конспекты — контрольные пишу спокойнее.</p>
+                    <div class="review-tag">История · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="history">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">Л</div>
+                        <div>
+                            <h3>Лариса Фёдорова</h3>
+                            <p>Мама ученика 11 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Сын готовится к ЕГЭ. Задания разбирают по блокам, много карт и фактов «без воды». Видим рост пробников.</p>
+                    <div class="review-tag">История · 10–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="history">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Г</div>
+                        <div>
+                            <h3>Георгий Савельев</h3>
+                            <p>Ученик 9 класса</p>
+                        </div>
+                        <div class="review-stars-new review-stars-4" aria-label="4 из 5">★★★★☆</div>
+                    </div>
+                    <p class="review-quote">Материал интересный, но домашки иногда многовато. Зато к ОГЭ по истории чувствую себя гораздо увереннее.</p>
+                    <div class="review-tag">История · 5–9 классы</div>
+                </article>
+
+                <!-- Биология -->
+                <article class="review-card-new" data-subject="biology">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">С</div>
+                        <div>
+                            <h3>Сергей Волков</h3>
+                            <p>Ученик 10 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Готовлюсь к олимпиадам. Сложные темы дают простыми словами, плюс доп. материалы — уже вижу рост в школе.</p>
+                    <div class="review-tag">Биология · 10–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="biology">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">Ю</div>
+                        <div>
+                            <h3>Юлия Панова</h3>
+                            <p>Мама ученицы 7 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Дочь наконец разобралась в клетках и системах органов. Перестала зубрить — стала понимать логику темы.</p>
+                    <div class="review-tag">Биология · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="biology">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Р</div>
+                        <div>
+                            <h3>Роман Демин</h3>
+                            <p>Ученик 11 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Нужна была база к ЕГЭ. Тренируем термины и типовые задания — пробники стабильно выше, чем в начале года.</p>
+                    <div class="review-tag">Биология · 10–11 классы</div>
+                </article>
+
+                <!-- Обществознание -->
+                <article class="review-card-new" data-subject="social">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">А</div>
+                        <div>
+                            <h3>Андрей Кузнецов</h3>
+                            <p>Ученик 11 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Структурированный курс и практика на реальных заданиях ЕГЭ. На экзамене набрал 87 — очень доволен.</p>
+                    <div class="review-tag">Обществознание · 10–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="social">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">М</div>
+                        <div>
+                            <h3>Марина Котова</h3>
+                            <p>Мама ученика 9 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Сын путал термины права и экономики. Сейчас отвечает увереннее, к ОГЭ идём без нервов.</p>
+                    <div class="review-tag">Обществознание · 6–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="social">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">И</div>
+                        <div>
+                            <h3>Ирина Мельникова</h3>
+                            <p>Ученица 10 класса</p>
+                        </div>
+                        <div class="review-stars-new review-stars-4" aria-label="4 из 5">★★★★☆</div>
+                    </div>
+                    <p class="review-quote">Объяснения сильные, эссе тренируем хорошо. Минус — иногда хочется больше разбора актуальных примеров из новостей.</p>
+                    <div class="review-tag">Обществознание · 10–11 классы</div>
+                </article>
+
+                <!-- География -->
+                <article class="review-card-new" data-subject="geography">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Ф</div>
+                        <div>
+                            <h3>Фёдор Григорьев</h3>
+                            <p>Ученик 7 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Карты перестали быть хаосом. Учимся читать легенду и быстро находить объекты — оценки подросли.</p>
+                    <div class="review-tag">География · 5–9 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="geography">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">С</div>
+                        <div>
+                            <h3>Светлана Орлова</h3>
+                            <p>Мама ученицы 10 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Дочь готовится к экзамену. Много практики с контурными картами и типовыми вопросами — виден системный подход.</p>
+                    <div class="review-tag">География · 10–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="geography">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Н</div>
+                        <div>
+                            <h3>Никита Баранов</h3>
+                            <p>Ученик 8 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Климат и рельеф раньше путал. На уроках дают простые схемы — теперь рассказываю тему своими словами.</p>
+                    <div class="review-tag">География · 5–9 классы</div>
+                </article>
+
+                <!-- Литература -->
+                <article class="review-card-new" data-subject="literature">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Ж</div>
+                        <div>
+                            <h3>Жанна Алексеева</h3>
+                            <p>Мама ученицы 9 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Дочь перестала «плавать» в образах и темах произведений. К ОГЭ по литературе идём осмысленно, не зубрёжкой.</p>
+                    <div class="review-tag">Литература · 5–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="literature">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new review-avatar-alt">В</div>
+                        <div>
+                            <h3>Владислав Ершов</h3>
+                            <p>Ученик 10 класса</p>
+                        </div>
+                        <div class="review-stars-new" aria-label="5 из 5">★★★★★</div>
+                    </div>
+                    <p class="review-quote">Научился писать анализ, а не пересказ. Разбираем композицию и аргументы — сочинения стали сильнее.</p>
+                    <div class="review-tag">Литература · 10–11 классы</div>
+                </article>
+                <article class="review-card-new" data-subject="literature">
+                    <div class="review-card-top">
+                        <div class="review-avatar-new">Е</div>
+                        <div>
+                            <h3>Екатерина Шилова</h3>
+                            <p>Ученица 8 класса</p>
+                        </div>
+                        <div class="review-stars-new review-stars-4" aria-label="4 из 5">★★★★☆</div>
+                    </div>
+                    <p class="review-quote">Книги обсуждать стало интереснее. Иногда темп быстрый, но в целом поняла, как искать идею в тексте.</p>
+                    <div class="review-tag">Литература · 5–9 классы</div>
+                </article>
+
+            </div>
+
+            <p class="reviews-empty" id="reviewsEmpty" hidden>Пока нет отзывов по этому предмету.</p>
+        </div>
+    </section>
+
+    <section class="home-section home-final-cta reveal">
+        <div class="home-section-inner final-cta-panel reviews-cta-panel">
+            <h2>Хотите такой же прогресс?</h2>
+            <p>Выберите предмет и запишитесь к репетитору — первый шаг занимает пару минут.</p>
+            <div class="hero-cta">
+                <a class="btn-primary" href="subjects.html">Выбрать предмет</a>
+                <a class="btn-ghost" href="about.html">О проекте</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>С любовью, проект ВВФ МТУСИ</p>
+        <a class="footer-legal" href="privacy.html">Политика и согласие</a>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthNav();
+
+            const SUBJECT_LABELS = {
+                all: 'все отзывы',
+                math: 'математика',
+                russian: 'русский язык',
+                english: 'английский',
+                history: 'история',
+                biology: 'биология',
+                social: 'обществознание',
+                geography: 'география',
+                literature: 'литература'
+            };
+
+            const filters = Array.from(document.querySelectorAll('.reviews-filter'));
+            const cards = Array.from(document.querySelectorAll('.review-card-new'));
+            const empty = document.getElementById('reviewsEmpty');
+            const subtitle = document.getElementById('reviewsSubtitle');
+            const grid = document.getElementById('reviewsGrid');
+
+            function setFilter(filter) {
+                const key = SUBJECT_LABELS[filter] ? filter : 'all';
+
+                filters.forEach(btn => {
+                    btn.classList.toggle('is-active', btn.getAttribute('data-filter') === key);
+                });
+
+                let visible = 0;
+                cards.forEach(card => {
+                    const match = key === 'all' || card.getAttribute('data-subject') === key;
+                    card.classList.toggle('is-hidden', !match);
+                    if (match) visible += 1;
+                });
+
+                empty.hidden = visible > 0;
+                subtitle.textContent = key === 'all'
+                    ? `Сейчас показаны все отзывы · ${visible}`
+                    : `Категория: ${SUBJECT_LABELS[key]} · ${visible} отзыв${visible === 1 ? '' : visible < 5 ? 'а' : 'ов'}`;
+
+                if (grid) {
+                    grid.classList.remove('is-switching');
+                    void grid.offsetWidth;
+                    grid.classList.add('is-switching');
+                }
+
+                const url = new URL(window.location.href);
+                if (key === 'all') url.searchParams.delete('subject');
+                else url.searchParams.set('subject', key);
+                window.history.replaceState({}, '', url);
+            }
+
+            filters.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    setFilter(btn.getAttribute('data-filter'));
+                });
+            });
+
+            cards.forEach(card => {
+                const tag = card.querySelector('.review-tag');
+                if (!tag) return;
+                tag.setAttribute('role', 'button');
+                tag.tabIndex = 0;
+                tag.title = 'Показать отзывы по этому предмету';
+                const activate = () => setFilter(card.getAttribute('data-subject'));
+                tag.addEventListener('click', activate);
+                tag.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        activate();
+                    }
+                });
+            });
+
+            const initial = new URLSearchParams(window.location.search).get('subject') || 'all';
+            setFilter(initial);
+
+            const items = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            items.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

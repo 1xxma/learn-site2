@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN - Личный кабинет</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LEARN">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">LEARN</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="subjects.html">Предметы</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="profile.html" class="active user-name-link" id="navUserName">Кабинет</a>
+            <a href="profile.html" class="profile-icon" id="profileIcon" aria-label="Личный кабинет">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <div class="subjects-header">
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Личный кабинет
+        </a>
+    </div>
+
+    <main class="profile-container reveal" id="profileMain">
+        <section class="profile-card">
+            <div class="profile-avatar" id="profileAvatar">?</div>
+            <div class="profile-meta">
+                <h1 id="profileName">Загрузка…</h1>
+                <p class="profile-email" id="profileEmail"></p>
+                <p class="profile-since" id="profileSince"></p>
+            </div>
+            <div class="profile-actions">
+                <a href="subjects.html" class="profile-secondary-btn">Найти репетитора</a>
+                <button type="button" class="profile-logout-btn" id="logoutBtn">Выйти</button>
+            </div>
+        </section>
+
+        <section class="bookings-section">
+            <div class="bookings-header">
+                <h2>Мои записи</h2>
+                <span class="bookings-count" id="bookingsCount">0</span>
+            </div>
+            <div class="bookings-list" id="bookingsList"></div>
+        </section>
+
+        <section class="bookings-section favorites-section">
+            <div class="bookings-header">
+                <h2>Избранные репетиторы</h2>
+                <span class="bookings-count" id="favoritesCount">0</span>
+            </div>
+            <div class="favorites-list" id="favoritesList"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>С любовью, проект ВВФ МТУСИ</p>
+        <a class="footer-legal" href="privacy.html">Политика и согласие</a>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        const MONTH_NAMES = [
+            'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+            'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+        ];
+
+        function formatBookingDate(dateStr) {
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return dateStr;
+            const day = Number(parts[2]);
+            const month = Number(parts[1]) - 1;
+            const year = parts[0];
+            return `${day} ${MONTH_NAMES[month]} ${year}`;
+        }
+
+        function isPastBooking(booking) {
+            const [y, m, d] = booking.date.split('-').map(Number);
+            const [hh, mm] = String(booking.slot).split('.').map(Number);
+            const when = new Date(y, m - 1, d, hh || 0, mm || 0);
+            return when.getTime() < Date.now();
+        }
+
+        function renderBookings() {
+            const user = getCurrentUser();
+            const listEl = document.getElementById('bookingsList');
+            const countEl = document.getElementById('bookingsCount');
+            const bookings = getUserBookings(user.email);
+
+            countEl.textContent = String(bookings.length);
+            listEl.innerHTML = '';
+
+            if (bookings.length === 0) {
+                listEl.innerHTML = `
+                    <div class="bookings-empty">
+                        <p>Пока нет записей на уроки.</p>
+                        <a href="subjects.html" class="profile-secondary-btn">Выбрать предмет</a>
+                    </div>
+                `;
+                return;
+            }
+
+            bookings.forEach(booking => {
+                const past = isPastBooking(booking);
+                const card = document.createElement('article');
+                card.className = 'booking-card' + (past ? ' past' : '');
+
+                const title = booking.tutorName || 'Репетитор';
+                const subject = booking.subject || 'Урок';
+
+                card.innerHTML = `
+                    <div class="booking-main">
+                        <div class="booking-date">${formatBookingDate(booking.date)} · ${booking.slot}</div>
+                        <div class="booking-tutor">${title}</div>
+                        <div class="booking-subject">${subject}</div>
+                        ${past ? '<span class="booking-badge">Прошедшее</span>' : '<span class="booking-badge upcoming">Предстоит</span>'}
+                    </div>
+                    <div class="booking-side">
+                        ${booking.tutorPage ? `<a class="booking-link" href="${booking.tutorPage}">К репетитору</a>` : ''}
+                        ${past ? '' : `<button type="button" class="booking-cancel-btn" data-id="${booking.id}">Отменить</button>`}
+                    </div>
+                `;
+
+                listEl.appendChild(card);
+            });
+
+            listEl.querySelectorAll('.booking-cancel-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    if (!confirm('Отменить эту запись?')) return;
+                    const result = cancelUserBooking(id);
+                    if (!result.ok) {
+                        alert(result.error || 'Не удалось отменить');
+                        return;
+                    }
+                    renderBookings();
+                });
+            });
+        }
+
+        function renderFavorites() {
+            const listEl = document.getElementById('favoritesList');
+            const countEl = document.getElementById('favoritesCount');
+            const favorites = getUserFavorites();
+
+            countEl.textContent = String(favorites.length);
+            listEl.innerHTML = '';
+
+            if (favorites.length === 0) {
+                listEl.innerHTML = `
+                    <div class="bookings-empty">
+                        <p>Пока нет избранных репетиторов.</p>
+                        <a href="subjects.html" class="profile-secondary-btn">Найти репетитора</a>
+                    </div>
+                `;
+                return;
+            }
+
+            favorites.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'booking-card favorite-card';
+                const meta = [item.subject, item.grades ? `${item.grades} классы` : '']
+                    .filter(Boolean)
+                    .join(' · ');
+                const price = item.price ? `от ${item.price} ₽/час` : '';
+
+                card.innerHTML = `
+                    <div class="booking-main">
+                        <div class="booking-tutor">${item.name || 'Репетитор'}</div>
+                        <div class="booking-subject">${meta}</div>
+                        ${price ? `<div class="booking-date">${price}</div>` : ''}
+                    </div>
+                    <div class="booking-side">
+                        <a class="booking-link" href="${item.page}">Открыть</a>
+                        <button type="button" class="booking-cancel-btn fav-remove-btn" data-page="${item.page}">Убрать</button>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+
+            listEl.querySelectorAll('.fav-remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const page = btn.getAttribute('data-page');
+                    const result = removeFavoriteTutor(page);
+                    if (!result.ok) {
+                        alert(result.error || 'Не удалось убрать');
+                        return;
+                    }
+                    renderFavorites();
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = getCurrentUser();
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            initAuthNav();
+
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('profileName').textContent = user.name;
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('profileAvatar').textContent = (user.name || '?').charAt(0).toUpperCase();
+
+            if (user.createdAt) {
+                const d = new Date(user.createdAt);
+                document.getElementById('profileSince').textContent =
+                    `С нами с ${d.toLocaleDateString('ru-RU')}`;
+            }
+
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+                if (confirm('Выйти из аккаунта?')) logout();
+            });
+
+            renderBookings();
+            renderFavorites();
+        });
+    </script>
+
+</body>
+</html>

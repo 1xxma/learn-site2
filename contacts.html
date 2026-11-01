@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN — Контакты</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#8B2942">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LEARN">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+</head>
+<body class="page-contacts">
+
+    <header>
+        <a href="index.html" class="logo">LEARN</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="subjects.html">Предметы</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html" class="active">Контакты</a>
+            <a href="login.html">Войти</a>
+            <a href="login.html" class="profile-icon" aria-label="Личный кабинет">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <section class="contacts-hero reveal">
+        <div class="contacts-hero-inner">
+            <p class="contacts-kicker">Связь с командой</p>
+            <h1>Контакты</h1>
+            <p class="contacts-lead">
+                Задайте вопрос о записи, предметах или формате занятий — ответим на почту или в Telegram.
+            </p>
+        </div>
+    </section>
+
+    <main class="home-section contacts-main reveal">
+        <div class="home-section-inner contacts-layout">
+            <section class="contacts-card">
+                <h2>Как связаться</h2>
+                <ul class="contacts-list">
+                    <li>
+                        <span class="contacts-label">Почта</span>
+                        <a id="contactEmailLink" href="mailto:learn.vvf.mtuci@gmail.com">learn.vvf.mtuci@gmail.com</a>
+                        <small>Общая почта проекта LEARN · ВВФ МТУСИ</small>
+                    </li>
+                    <li>
+                        <span class="contacts-label">Telegram-канал</span>
+                        <a id="contactTgChannel" href="https://t.me/learn_vvf" target="_blank" rel="noopener noreferrer">@learn_vvf</a>
+                        <small>Новости, обновления и анонсы</small>
+                    </li>
+                    <li>
+                        <span class="contacts-label">Telegram-чат</span>
+                        <a id="contactTgChat" href="https://t.me/learn_vvf_chat" target="_blank" rel="noopener noreferrer">@learn_vvf_chat</a>
+                        <small>Вопросы учеников и родителей</small>
+                    </li>
+                    <li>
+                        <span class="contacts-label">Проект</span>
+                        <span>ВВФ МТУСИ · LEARN</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="contacts-card contacts-form-card">
+                <h2>Задать вопрос</h2>
+                <p class="contacts-form-note">Без записи на урок — просто напишите нам.</p>
+                <form id="contactForm" class="contact-form" novalidate>
+                    <label>
+                        Имя
+                        <input type="text" name="name" id="contactName" required placeholder="Как к вам обращаться">
+                    </label>
+                    <label>
+                        Ваш email
+                        <input type="email" name="email" id="contactEmail" required placeholder="you@example.com">
+                    </label>
+                    <label>
+                        Сообщение
+                        <textarea name="message" id="contactMessage" rows="5" required placeholder="Спросите про предметы, классы, оплату или формат урока"></textarea>
+                    </label>
+                    <button type="submit" class="btn-primary">Отправить вопрос</button>
+                    <p class="contact-form-status" id="contactFormStatus" hidden></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>С любовью, проект ВВФ МТУСИ</p>
+        <a class="footer-legal" href="privacy.html">Политика и согласие</a>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initAuthNav();
+
+            const emailLink = document.getElementById('contactEmailLink');
+            if (emailLink && typeof CONTACT_EMAIL === 'string') {
+                emailLink.href = 'mailto:' + CONTACT_EMAIL;
+                emailLink.textContent = CONTACT_EMAIL;
+            }
+
+            const channel = document.getElementById('contactTgChannel');
+            if (channel && typeof CONTACT_TG_CHANNEL === 'string') {
+                channel.href = CONTACT_TG_CHANNEL;
+                if (typeof CONTACT_TG_CHANNEL_HANDLE === 'string') {
+                    channel.textContent = CONTACT_TG_CHANNEL_HANDLE;
+                }
+            }
+
+            const chat = document.getElementById('contactTgChat');
+            if (chat && typeof CONTACT_TG_CHAT === 'string') {
+                chat.href = CONTACT_TG_CHAT;
+                if (typeof CONTACT_TG_CHAT_HANDLE === 'string') {
+                    chat.textContent = CONTACT_TG_CHAT_HANDLE;
+                }
+            }
+
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('contactFormStatus');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const message = document.getElementById('contactMessage').value.trim();
+
+                if (!name || !email || !message) {
+                    status.hidden = false;
+                    status.textContent = 'Заполните все поля.';
+                    return;
+                }
+
+                const to = (typeof CONTACT_EMAIL === 'string' && CONTACT_EMAIL) || 'learn.vvf.mtuci@gmail.com';
+                const subject = encodeURIComponent('Вопрос с сайта LEARN от ' + name);
+                const body = encodeURIComponent(
+                    'Имя: ' + name + '\nEmail: ' + email + '\n\n' + message
+                );
+
+                status.hidden = false;
+                status.textContent = 'Открываем почту для отправки…';
+                window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+                form.reset();
+            });
+        });
+    </script>
+
+</body>
+</html>
